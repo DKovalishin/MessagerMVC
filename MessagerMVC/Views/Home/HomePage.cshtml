@@ -1,0 +1,39 @@
+﻿@model User
+
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Dilaogs of user @Model.Name</title>
+    <link href="~/css/site.css" rel ="sitestyle"/>
+</head>
+<body>
+    <form asp-controller="Home" asp-action="SearchForUsersPage">
+       <label asp-for="Name" class="control-label"></label>
+       <input asp-for="Name" class="form-control"/>
+       <input type="submit" value="Search User"/>
+    </form>
+    
+    @foreach (var dialog in Model.Dialogs)
+    {
+        <tr>
+            <form asp-controller="Chat" asp-action="ChatPage" asp-route-dialogId=@dialog.Id>
+                <td>@dialog.Users[0].Name</td>
+                <td>@dialog.Users[1].Name</td>
+                <input type = "submit" value="Go to dialog">
+            </form>
+        </tr>
+    }
+
+    @if(Model.Dialogs.Count<1)
+    {
+        <h1>U have no dialogs...</h1>
+    }
+
+</body>
+</html>

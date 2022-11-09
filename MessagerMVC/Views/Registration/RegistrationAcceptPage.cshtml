@@ -1,0 +1,21 @@
+﻿
+@model RegistrationUserModel
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Accept</title>
+    <link href="~/css/StyleSheet.css" rel ="stylesheet"/>
+</head>
+<body>
+    <h1>Успешная регистрация!</h1>
+    <h2>Спасибо @Model.Name за регистрацию!</h2>
+    <a asp-controller="LogIn" asp-action="LogInPage">Вернуться домой</a>
+</body>
+</html>

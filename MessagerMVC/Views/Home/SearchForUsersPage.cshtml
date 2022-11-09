@@ -1,0 +1,20 @@
+﻿@model IEnumerable<MessagerMVC.Models.User>
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<body>
+
+@foreach (var user in Model) {
+        <form asp-controller="Home" asp-action="CreateNewDialogPage" asp-route-secondUserId=@user.Id>
+                    <h1>@ViewData["Error"]</h1>
+                    <h1>@user.Name</h1>
+                    <input type="submit" value="Create dialog"/>                    
+        </form>
+}
+
+</body>
+</html>
